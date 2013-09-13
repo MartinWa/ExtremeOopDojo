@@ -2,16 +2,21 @@
 {
     public class UserInput
     {
-        private readonly string _empty;
+        private readonly string _input;
 
-        public UserInput(string empty)
+        public UserInput(string input)
         {
-            _empty = empty;
+            _input = input;
         }
 
         public bool IsEmpty()
         {
-            return _empty != null && _empty.Length == 0;
+            return _input != null && _input.Length == 0;
+        }
+
+        public bool IsPrint()
+        {
+            return _input == "PRINT";
         }
     }
 }
