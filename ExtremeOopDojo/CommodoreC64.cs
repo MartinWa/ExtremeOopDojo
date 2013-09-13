@@ -1,12 +1,10 @@
-﻿using System;
-
-namespace ExtremeOopDojo
+﻿namespace ExtremeOopDojo
 {
     public class CommodoreC64
     {
-        public string Interpret(string empty)
+        public string Interpret(UserInput input)
         {
-            throw new NotImplementedException();
+            return input.IsEmpty() ? "" : null;
         }
     }
 }
