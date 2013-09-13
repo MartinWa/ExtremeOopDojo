@@ -23,19 +23,28 @@ namespace ExtremeOopDojo
 
         public string Parse()
         {
-
-            if (IsEmpty())
+            var returnValue = "";
+            var statements = _input.Split(new[]{';'}, StringSplitOptions.None);
+            foreach (var statement in statements)
             {
-                return "";
-            }
-            if (IsPrint())
-            {
-                return Environment.NewLine;
-            }
-            var stringOperand = _input.Remove(0, 6);
-            
+                if (IsEmpty())
+                {
+                    returnValue = returnValue + "";
+                    continue;
+                }
 
-            return stringOperand.Replace("\"","")+Environment.NewLine;
+                if (IsPrint())
+                {
+                    returnValue = returnValue + Environment.NewLine;
+                    continue;
+                }
+                var stringOperand = statement.Remove(0, 6);
+
+
+                returnValue += stringOperand.Replace("\"", "") + Environment.NewLine;  
+            }
+          
+            return returnValue;
         }
     }
 }
