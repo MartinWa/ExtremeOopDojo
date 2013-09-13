@@ -1,4 +1,6 @@
-﻿namespace ExtremeOopDojo
+﻿using System;
+
+namespace ExtremeOopDojo
 {
     public class UserInput
     {
@@ -17,6 +19,20 @@
         public bool IsPrint()
         {
             return _input == "PRINT";
+        }
+
+        public string Parse()
+        {
+
+            if (IsEmpty())
+            {
+                return "";
+            }
+            if (IsPrint())
+            {
+                return Environment.NewLine;
+            }
+            return _input.Remove(0,6).Replace("\"","")+Environment.NewLine;
         }
     }
 }

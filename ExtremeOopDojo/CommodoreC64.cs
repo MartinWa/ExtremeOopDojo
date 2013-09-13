@@ -1,4 +1,4 @@
-﻿using System;
+﻿
 
 namespace ExtremeOopDojo
 {
@@ -6,15 +6,7 @@ namespace ExtremeOopDojo
     {
         public string Interpret(UserInput input)
         {
-            if (input.IsEmpty())
-            {
-                return "";
-            }
-            if (input.IsPrint())
-            {
-                return Environment.NewLine;
-            }
-            return null;
+            return input.Parse();
         }
     }
 }
