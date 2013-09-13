@@ -32,7 +32,10 @@ namespace ExtremeOopDojo
             {
                 return Environment.NewLine;
             }
-            return _input.Remove(0,6).Replace("\"","")+Environment.NewLine;
+            var stringOperand = _input.Remove(0, 6);
+            
+
+            return stringOperand.Replace("\"","")+Environment.NewLine;
         }
     }
 }
