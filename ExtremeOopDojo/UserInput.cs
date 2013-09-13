@@ -11,29 +11,19 @@ namespace ExtremeOopDojo
             _input = input;
         }
 
-        public bool IsEmpty()
-        {
-            return _input != null && _input.Length == 0;
-        }
-
-        public bool IsPrint()
-        {
-            return _input == "PRINT";
-        }
-
         public string Parse()
         {
             var returnValue = "";
             var statements = _input.Split(new[]{';'}, StringSplitOptions.None);
             foreach (var statement in statements)
             {
-                if (IsEmpty())
+                if (statement != null && statement.Length == 0)
                 {
                     returnValue = returnValue + "";
                     continue;
                 }
 
-                if (IsPrint())
+                if (statement == "PRINT")
                 {
                     returnValue = returnValue + Environment.NewLine;
                     continue;
