@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Text.RegularExpressions;
+using ExtremeOopDojo.Operands;
 using ExtremeOopDojo.Operator;
 
 namespace ExtremeOopDojo
@@ -21,26 +22,28 @@ namespace ExtremeOopDojo
             var operators = new List<BaseOperator>();
             foreach (var expression in expressions)
             {
+                var printOperand = Regex.Match(expression, @"PRINT(?<operand>.*)");
+                var variableOperand = Regex.Match(expression, @"\w+\s*=\s*");
                 if (string.IsNullOrEmpty(expression))
                 {
                     operators.Add(new EmptyOperator());
                 }
-                else if (Regex.IsMatch(expression, @"PRINT"))
+                else if (printOperand.Success)
                 {
-                    var operand = Regex.Match(@"PRINT(?<operand>.*)", expression).Groups["operand"].Value;
+                    var operand = printOperand.Groups["operand"].Value;
                     if (string.IsNullOrEmpty(operand))
                     {
                         operators.Add(new PrintOperator(new EmptyOperator()));
                     }
-                    else if (Regex.IsMatch(@".*"))
+                    var cc = Regex.Match(operand, @"""(?<string>.*)""");
+                    if (cc.Success)
                     {
-                        
-
+                        operators.Add(new PrintOperator(new StringOperand(cc.Groups["string"].Value)));
                     }
                 }
-                else if (Regex.IsMatch(expression, @"\w+\s*=\s*"))
+                else if (variableOperand.Success)
                 {
-                    var valueString = Regex.Match(@"\w+\s*=\s*", expression).Groups["value"].Value;
+                    var valueString = variableOperand.Groups["value"].Value;
                     int value;
                     try
                     {
