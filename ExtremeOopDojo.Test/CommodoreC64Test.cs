@@ -73,5 +73,18 @@ namespace ExtremeOopDojo.Test
                             "!" + Environment.NewLine,
                             result);
         }
+
+        [TestMethod]
+        public void InterpretShouldHandlePrintWithIntegerOperand()
+        {
+            //Arrange
+            var classUnderTest = new CommodoreC64();
+            var input = new UserInput(@"PRINT 123");
+            //Act
+            var result = classUnderTest.Interpret(input);
+
+            //Assert
+            Assert.AreEqual("123" + Environment.NewLine,result);
+        }
     }
 }

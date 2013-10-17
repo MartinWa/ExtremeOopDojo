@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Operands\EmptyOperand.cs" />
     <Compile Include="Operator\BaseOperator.cs" />
     <Compile Include="CommodoreC64.cs" />
     <Compile Include="Operator\EmptyOperator.cs" />

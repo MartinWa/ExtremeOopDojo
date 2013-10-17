@@ -1,8 +1,6 @@
-﻿using ExtremeOopDojo.Operator;
-
-namespace ExtremeOopDojo.Operands
+﻿namespace ExtremeOopDojo.Operands
 {
-    public class StringOperand : BaseOperator
+    public class StringOperand : BaseOperand
     {
         private readonly string _statement;
 

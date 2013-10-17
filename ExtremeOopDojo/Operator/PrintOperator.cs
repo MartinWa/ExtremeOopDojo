@@ -1,12 +1,13 @@
 ﻿using System;
+using ExtremeOopDojo.Operands;
 
 namespace ExtremeOopDojo.Operator
 {
     public class PrintOperator : BaseOperator
     {
-        private readonly BaseOperator _operand;
+        private readonly BaseOperand _operand;
 
-        public PrintOperator(BaseOperator operand)
+        public PrintOperator(BaseOperand operand)
         {
             _operand = operand;
         }
