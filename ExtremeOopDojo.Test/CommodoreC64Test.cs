@@ -112,5 +112,18 @@ namespace ExtremeOopDojo.Test
             //Assert
             Assert.AreEqual("0" + Environment.NewLine, result);
         }
+
+        [TestMethod]
+        public void InterpretShouldHandleVariableAssignment()
+        {
+            //Arrange
+            var classUnderTest = new CommodoreC64();
+            var input = new UserInput(@"A = 12;PRINT A");
+            //Act
+            var result = classUnderTest.Interpret(input);
+
+            //Assert
+            Assert.AreEqual("12" + Environment.NewLine, result);
+        }
     }
 }

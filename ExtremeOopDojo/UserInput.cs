@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
 using System.Text.RegularExpressions;
 using ExtremeOopDojo.Operands;
 using ExtremeOopDojo.Operator;
@@ -21,6 +20,7 @@ namespace ExtremeOopDojo
         {
             var expressions = _input.Split(new[] { ';' }, StringSplitOptions.None);
             var operators = new List<BaseOperator>();
+            var variables = new Dictionary<string,int>();
             foreach (var expression in expressions)
             {
                 var printOperator = Regex.Match(expression, @"PRINT(?<operand>.*)");
@@ -49,7 +49,15 @@ namespace ExtremeOopDojo
                     }
                     else if (variableOperand.Success)
                     {
-                        operators.Add(new PrintOperator(new IntegerOperand(0)));
+                        var variableName = variableOperand.Groups["variable"].Value;
+                        if (variables.ContainsKey(variableName))
+                        {
+                            operators.Add(new PrintOperator(new IntegerOperand(variables[variableName])));
+                        }
+                        else
+                        {
+                            operators.Add(new PrintOperator(new IntegerOperand(0)));
+                        }
                     }
                     else
                     {
@@ -58,8 +66,19 @@ namespace ExtremeOopDojo
                 }
                 else if (variableOperator.Success)
                 {
-                    operators.Add(VariableOperator.FromString(variableOperator.Groups["variable"].Value,
-                                                              variableOperator.Groups["value"].Value));
+                    var name = variableOperator.Groups["variable"].Value;
+                    var stringValue = variableOperator.Groups["value"].Value;
+                    int value;
+                    try
+                    {
+                        value = Int32.Parse(stringValue);
+                    }
+                    catch (Exception)
+                    {
+
+                        throw new InvalidExpressionException(String.Format("{0} is not a valid value", stringValue));
+                    }
+                    variables.Add(name, value);
                 }
                 else throw new InvalidExpressionException(String.Format("{0} is not a valid expression", expression));
             }
