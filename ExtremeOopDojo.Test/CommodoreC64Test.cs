@@ -86,5 +86,18 @@ namespace ExtremeOopDojo.Test
             //Assert
             Assert.AreEqual("123" + Environment.NewLine,result);
         }
+
+        [TestMethod]
+        public void InterpretShouldHandlePrintWithNegativeIntegerOperand()
+        {
+            //Arrange
+            var classUnderTest = new CommodoreC64();
+            var input = new UserInput(@"PRINT -5");
+            //Act
+            var result = classUnderTest.Interpret(input);
+
+            //Assert
+            Assert.AreEqual("-5" + Environment.NewLine, result);
+        }
     }
 }

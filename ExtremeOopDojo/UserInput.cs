@@ -32,7 +32,7 @@ namespace ExtremeOopDojo
                 {
                     var operand = printOperand.Groups["operand"].Value;
                     var stringOperand = Regex.Match(operand, @"""(?<string>.*)""");
-                    var integerOperand = Regex.Match(operand, @"\s*(?<integer>\d+)\s*");
+                    var integerOperand = Regex.Match(operand, @"\s*(?<integer>-*\d+)\s*");
                     if (string.IsNullOrEmpty(operand))
                     {
                         operators.Add(new PrintOperator(new EmptyOperand()));
