@@ -125,5 +125,18 @@ namespace ExtremeOopDojo.Test
             //Assert
             Assert.AreEqual("12" + Environment.NewLine, result);
         }
+
+        [TestMethod]
+        public void InterpretShouldHandleAddition()
+        {
+            //Arrange
+            var classUnderTest = new CommodoreC64();
+            var input = new UserInput(@"PRINT 3 + 7");
+            //Act
+            var result = classUnderTest.Interpret(input);
+
+            //Assert
+            Assert.AreEqual("10" + Environment.NewLine, result);
+        }
     }
 }
