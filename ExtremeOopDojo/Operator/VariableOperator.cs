@@ -32,7 +32,7 @@ namespace ExtremeOopDojo.Operator
 
         public override string ToString()
         {
-            return _value.ToString(CultureInfo.InvariantCulture);
+            return _name + " = " + _value.ToString(CultureInfo.InvariantCulture);
         }
     }
 }

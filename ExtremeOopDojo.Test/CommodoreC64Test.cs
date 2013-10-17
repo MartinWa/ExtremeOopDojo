@@ -99,5 +99,18 @@ namespace ExtremeOopDojo.Test
             //Assert
             Assert.AreEqual("-5" + Environment.NewLine, result);
         }
+
+        [TestMethod]
+        public void InterpretShouldHandlePrintOfVariables()
+        {
+            //Arrange
+            var classUnderTest = new CommodoreC64();
+            var input = new UserInput(@"PRINT A");
+            //Act
+            var result = classUnderTest.Interpret(input);
+
+            //Assert
+            Assert.AreEqual("0" + Environment.NewLine, result);
+        }
     }
 }

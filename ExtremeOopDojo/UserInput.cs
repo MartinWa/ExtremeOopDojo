@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 using System.Text.RegularExpressions;
 using ExtremeOopDojo.Operands;
 using ExtremeOopDojo.Operator;
@@ -22,17 +23,18 @@ namespace ExtremeOopDojo
             var operators = new List<BaseOperator>();
             foreach (var expression in expressions)
             {
-                var printOperand = Regex.Match(expression, @"PRINT(?<operand>.*)");
-                var variableOperand = Regex.Match(expression, @"(?<variable>[a-zA-Z]+)\s*=\s*(?<value>.+)");
+                var printOperator = Regex.Match(expression, @"PRINT(?<operand>.*)");
+                var variableOperator = Regex.Match(expression, @"(?<variable>[a-zA-Z]+)\s*=\s*(?<value>.+)");
                 if (string.IsNullOrEmpty(expression))
                 {
                     operators.Add(new EmptyOperator());
                 }
-                else if (printOperand.Success)
+                else if (printOperator.Success)
                 {
-                    var operand = printOperand.Groups["operand"].Value;
+                    var operand = printOperator.Groups["operand"].Value;
                     var stringOperand = Regex.Match(operand, @"""(?<string>.*)""");
                     var integerOperand = Regex.Match(operand, @"\s*(?<integer>-*\d+)\s*");
+                    var variableOperand = Regex.Match(operand, @"\s*(?<variable>[a-zA-Z]+)\s*");
                     if (string.IsNullOrEmpty(operand))
                     {
                         operators.Add(new PrintOperator(new EmptyOperand()));
@@ -45,15 +47,19 @@ namespace ExtremeOopDojo
                     {
                         operators.Add(new PrintOperator(IntegerOperand.FromString(integerOperand.Groups["integer"].Value)));
                     }
+                    else if (variableOperand.Success)
+                    {
+                        operators.Add(new PrintOperator(new IntegerOperand(0)));
+                    }
                     else
                     {
                         throw new InvalidExpressionException(String.Format("{0} is not a valid operand", operand));
                     }
                 }
-                else if (variableOperand.Success)
+                else if (variableOperator.Success)
                 {
-                    operators.Add(VariableOperator.FromString(variableOperand.Groups["variable"].Value,
-                                                              variableOperand.Groups["value"].Value));
+                    operators.Add(VariableOperator.FromString(variableOperator.Groups["variable"].Value,
+                                                              variableOperator.Groups["value"].Value));
                 }
                 else throw new InvalidExpressionException(String.Format("{0} is not a valid expression", expression));
             }
