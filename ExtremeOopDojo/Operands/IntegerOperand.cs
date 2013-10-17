@@ -1,19 +1,19 @@
-﻿using System;
+﻿using System.Globalization;
 
-namespace ExtremeOopDojo
+namespace ExtremeOopDojo.Operands
 {
-    public class IntegerOperand : BaseExpression
+    public class IntegerOperand : BaseOperand
     {
-        private readonly int _i;
+        private readonly int _value;
 
-        public IntegerOperand(int i)
+        public IntegerOperand(int value)
         {
-            _i = i;
+            _value = value;
         }
 
-        public override string Parse()
+        public override string ToString()
         {
-            throw new NotImplementedException();
+            return _value.ToString(CultureInfo.InvariantCulture);
         }
     }
 }

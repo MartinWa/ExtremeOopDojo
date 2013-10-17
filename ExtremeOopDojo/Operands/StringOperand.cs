@@ -1,8 +1,8 @@
-﻿using System;
+﻿using ExtremeOopDojo.Operator;
 
-namespace ExtremeOopDojo
+namespace ExtremeOopDojo.Operands
 {
-    public class StringOperand : BaseExpression
+    public class StringOperand : BaseOperator
     {
         private readonly string _statement;
 
@@ -11,9 +11,9 @@ namespace ExtremeOopDojo
             _statement = statement;
         }
 
-        public override string Parse()
+        public override string ToString()
         {
-            throw new NotImplementedException();
+            return _statement;
         }
     }
 }
