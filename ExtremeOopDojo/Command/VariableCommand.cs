@@ -30,9 +30,19 @@ namespace ExtremeOopDojo.Command
             return new VariableCommand(name, value);
         }
 
+        public string GetName() // Violates rules Don't use any getters
+        {
+            return _name;
+        }
+
+        public int GetValue()  // Violates rules Don't use any getters
+        {
+            return _value;
+        }
+
         public override string ToString()
         {
-            return _name + " = " + _value.ToString(CultureInfo.InvariantCulture);
+            return ""; // Requirements states that assignments are not echoed
         }
     }
 }

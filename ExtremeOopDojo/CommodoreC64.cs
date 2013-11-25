@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using ExtremeOopDojo.Command;
+using ExtremeOopDojo.Operands;
 
 namespace ExtremeOopDojo
 {
@@ -19,10 +20,17 @@ namespace ExtremeOopDojo
             {
                 return String.Format("Error: {0}", ex.Message);
             }
-            
+
+            var variables = new Dictionary<string, int>();
             foreach (var expression in expressions)
             {
-                returnString += expression.ToString();
+                var command = expression as VariableCommand;
+                if (command != null)
+                {
+                    var variable = command;
+                    variables.Add(variable.GetName(), variable.GetValue());
+                }
+                else returnString += expression.ToString();
             }
             return returnString;
         }
