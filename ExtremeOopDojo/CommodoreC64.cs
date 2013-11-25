@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Globalization;
-using ExtremeOopDojo.Operator;
+using ExtremeOopDojo.Command;
 
 namespace ExtremeOopDojo
 {
@@ -11,7 +10,7 @@ namespace ExtremeOopDojo
         public string Interpret(UserInput input)
         {
             var returnString = "";
-            IEnumerable<BaseOperator> expressions;
+            IEnumerable<BaseCommand> expressions;
             try
             {
                 expressions = input.Parse();

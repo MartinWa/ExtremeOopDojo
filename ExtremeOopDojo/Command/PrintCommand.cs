@@ -1,15 +1,15 @@
 ﻿using System;
 using ExtremeOopDojo.Operands;
 
-namespace ExtremeOopDojo.Operator
+namespace ExtremeOopDojo.Command
 {
-    public class PrintOperator : BaseOperator
+    public class PrintCommand : BaseCommand
     {
         private readonly BaseOperand _operand;
 
-        public PrintOperator(BaseOperand operand)
+        public PrintCommand(BaseOperand operands)
         {
-            _operand = operand;
+            _operand = operands;
         }
 
         public override string ToString()

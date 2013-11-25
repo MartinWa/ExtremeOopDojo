@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Data;
 using System.Globalization;
-using ExtremeOopDojo.Operator;
 
 namespace ExtremeOopDojo.Operands
 {

@@ -1,6 +1,6 @@
-﻿namespace ExtremeOopDojo.Operator
+﻿namespace ExtremeOopDojo.Command
 {
-    public class EmptyOperator : BaseOperator
+    public class EmptyCommand : BaseCommand
     {
         public override string ToString()
         {
