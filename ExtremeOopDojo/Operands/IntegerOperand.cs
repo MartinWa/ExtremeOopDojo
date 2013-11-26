@@ -13,7 +13,7 @@ namespace ExtremeOopDojo.Operands
             _value = value;
         }
 
-        public override string ToString()
+        public override string Execute(IVariableList variables)
         {
             return _value.ToString(CultureInfo.InvariantCulture);
         }

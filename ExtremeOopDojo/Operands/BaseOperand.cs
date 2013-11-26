@@ -32,6 +32,6 @@ namespace ExtremeOopDojo.Operands
             }
             throw new InvalidExpressionException(String.Format("{0} is not a valid operand", operand));
         }
-        public abstract override string ToString(); 
+        public abstract string Execute(IVariableList variables);
     }
 }

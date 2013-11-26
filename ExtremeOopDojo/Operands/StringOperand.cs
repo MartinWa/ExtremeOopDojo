@@ -9,7 +9,7 @@
             _statement = statement;
         }
 
-        public override string ToString()
+        public override string Execute(IVariableList variables)
         {
             return _statement;
         }

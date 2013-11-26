@@ -2,7 +2,7 @@
 {
     public class EmptyOperand : BaseOperand
     {
-        public override string ToString()
+        public override string Execute(IVariableList variables)
         {
             return "";
         }

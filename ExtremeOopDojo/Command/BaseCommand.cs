@@ -7,6 +7,8 @@ namespace ExtremeOopDojo.Command
 {
     public abstract class BaseCommand
     {
+        protected static IVariableList Variables = new VariableList();
+
         public static BaseCommand FromExpression(string expression)
         {
             var printOperator = Regex.Match(expression, @"PRINT(?<operand>.*)");
@@ -29,6 +31,6 @@ namespace ExtremeOopDojo.Command
             throw new InvalidExpressionException(String.Format("{0} is not a valid expression", expression));
         }
 
-        public abstract override string ToString();
+        public abstract string Execute();
     }
 }

@@ -44,6 +44,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="VariableList.cs" />
+    <Compile Include="IVariableList.cs" />
     <Compile Include="Operands\VariableOperand.cs" />
     <Compile Include="Operands\EmptyOperand.cs" />
     <Compile Include="Command\BaseCommand.cs" />

@@ -12,9 +12,9 @@ namespace ExtremeOopDojo.Command
             _operand = operands;
         }
 
-        public override string ToString()
+        public override string Execute()
         {
-            return _operand + Environment.NewLine;
+            return _operand.Execute(Variables) + Environment.NewLine;
         }
     }
 }

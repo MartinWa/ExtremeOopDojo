@@ -2,7 +2,7 @@
 {
     public class EmptyCommand : BaseCommand
     {
-        public override string ToString()
+        public override string Execute()
         {
             return "";
         }

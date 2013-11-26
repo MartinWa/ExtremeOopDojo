@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Globalization;
 
@@ -30,18 +31,9 @@ namespace ExtremeOopDojo.Command
             return new VariableCommand(name, value);
         }
 
-        public string GetName() // Violates rules Don't use any getters
+        public override string Execute()
         {
-            return _name;
-        }
-
-        public int GetValue()  // Violates rules Don't use any getters
-        {
-            return _value;
-        }
-
-        public override string ToString()
-        {
+            Variables.Add(_name, _value);
             return ""; // Requirements states that assignments are not echoed
         }
     }

@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.Globalization;
 
 namespace ExtremeOopDojo.Operands
 {
@@ -10,9 +10,9 @@ namespace ExtremeOopDojo.Operands
         {
             _variableName = variableName;
         }
-        public override string ToString()
+        public override string Execute(IVariableList variables)
         {
-            return _variableName; // TODO, this should be converted to the value based on VariableCommands
+            return variables.Get(_variableName).ToString(CultureInfo.InvariantCulture);
         }
     }
 }
