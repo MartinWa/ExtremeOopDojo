@@ -13,6 +13,10 @@ namespace ExtremeOopDojo.Operands
         {
             _value = value;
         }
+        public int GetValue()  // TODO Gets are not allowed
+        {
+            return _value;
+        }
 
         public override string Execute(IVariableList variables)
         {

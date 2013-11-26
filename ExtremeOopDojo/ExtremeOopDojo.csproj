@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="Helpers\VariableList.cs" />
     <Compile Include="Helpers\IVariableList.cs" />
+    <Compile Include="Operands\AdditionOperand.cs" />
     <Compile Include="Operands\VariableOperand.cs" />
     <Compile Include="Operands\EmptyOperand.cs" />
     <Compile Include="Command\BaseCommand.cs" />
