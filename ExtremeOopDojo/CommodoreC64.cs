@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Globalization;
-using ExtremeOopDojo.Operator;
+using ExtremeOopDojo.Command;
+using ExtremeOopDojo.Helpers;
 
 namespace ExtremeOopDojo
 {
@@ -11,7 +11,7 @@ namespace ExtremeOopDojo
         public string Interpret(UserInput input)
         {
             var returnString = "";
-            IEnumerable<BaseOperator> expressions;
+            IEnumerable<BaseCommand> expressions;
             try
             {
                 expressions = input.Parse();
@@ -20,10 +20,10 @@ namespace ExtremeOopDojo
             {
                 return String.Format("Error: {0}", ex.Message);
             }
-            
+
             foreach (var expression in expressions)
             {
-                returnString += expression.ToString();
+                returnString += expression.Execute();
             }
             return returnString;
         }

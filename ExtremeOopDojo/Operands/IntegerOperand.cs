@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Globalization;
-using ExtremeOopDojo.Operator;
+using ExtremeOopDojo.Helpers;
 
 namespace ExtremeOopDojo.Operands
 {
@@ -13,8 +13,12 @@ namespace ExtremeOopDojo.Operands
         {
             _value = value;
         }
+        public int GetValue()  // TODO Gets are not allowed
+        {
+            return _value;
+        }
 
-        public override string ToString()
+        public override string Execute(IVariableList variables)
         {
             return _value.ToString(CultureInfo.InvariantCulture);
         }

@@ -1,21 +1,20 @@
 ﻿using System;
 using System.Data;
-using System.Globalization;
 
-namespace ExtremeOopDojo.Operator
+namespace ExtremeOopDojo.Command
 {
-    public class VariableOperator : BaseOperator
+    public class VariableCommand : BaseCommand
     {
         private readonly string _name;
         private readonly int _value;
 
-        public VariableOperator(string name, int value)
+        public VariableCommand(string name, int value)
         {
             _name = name;
             _value = value;
         }
 
-        public static VariableOperator FromString(string name, string stringValue)
+        public static VariableCommand FromString(string name, string stringValue)
         {
             int value;
             try
@@ -27,12 +26,13 @@ namespace ExtremeOopDojo.Operator
 
                 throw new InvalidExpressionException(String.Format("{0} is not a valid value", stringValue));
             }
-            return new VariableOperator(name, value);
+            return new VariableCommand(name, value);
         }
 
-        public override string ToString()
+        public override string Execute()
         {
-            return _name + " = " + _value.ToString(CultureInfo.InvariantCulture);
+            Variables.Add(_name, _value);
+            return ""; // Requirements states that assignments are not echoed
         }
     }
 }

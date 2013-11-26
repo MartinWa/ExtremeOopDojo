@@ -1,4 +1,6 @@
-﻿namespace ExtremeOopDojo.Operands
+﻿using ExtremeOopDojo.Helpers;
+
+namespace ExtremeOopDojo.Operands
 {
     public class StringOperand : BaseOperand
     {
@@ -9,7 +11,7 @@
             _statement = statement;
         }
 
-        public override string ToString()
+        public override string Execute(IVariableList variables)
         {
             return _statement;
         }

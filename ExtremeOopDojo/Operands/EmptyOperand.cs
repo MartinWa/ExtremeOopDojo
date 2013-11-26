@@ -1,8 +1,10 @@
-﻿namespace ExtremeOopDojo.Operands
+﻿using ExtremeOopDojo.Helpers;
+
+namespace ExtremeOopDojo.Operands
 {
     public class EmptyOperand : BaseOperand
     {
-        public override string ToString()
+        public override string Execute(IVariableList variables)
         {
             return "";
         }
