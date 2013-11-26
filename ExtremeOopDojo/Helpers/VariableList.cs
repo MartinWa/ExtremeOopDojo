@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace ExtremeOopDojo
+namespace ExtremeOopDojo.Helpers
 {
     class VariableList : IVariableList
     {

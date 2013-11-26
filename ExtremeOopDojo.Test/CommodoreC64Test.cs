@@ -1,4 +1,5 @@
 ﻿using System;
+using ExtremeOopDojo.Helpers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace ExtremeOopDojo.Test

@@ -1,4 +1,6 @@
-﻿namespace ExtremeOopDojo.Operands
+﻿using ExtremeOopDojo.Helpers;
+
+namespace ExtremeOopDojo.Operands
 {
     public class StringOperand : BaseOperand
     {
