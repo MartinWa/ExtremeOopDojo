@@ -8,7 +8,7 @@ namespace ExtremeOopDojo.Command
 {
     public abstract class BaseCommand
     {
-        protected static IVariableList Variables = new VariableList();
+        protected static readonly IVariableList VariableList = new VariableList();
 
         public static BaseCommand FromExpression(string expression)
         {

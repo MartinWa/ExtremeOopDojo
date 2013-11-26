@@ -13,12 +13,8 @@ namespace ExtremeOopDojo.Operands
         {
             _value = value;
         }
-        public int GetValue()  // TODO Gets are not allowed
-        {
-            return _value;
-        }
 
-        public override string Execute(IVariableList variables)
+        public override string Execute(IVariableList variableList)
         {
             return _value.ToString(CultureInfo.InvariantCulture);
         }
@@ -36,6 +32,16 @@ namespace ExtremeOopDojo.Operands
                 throw new InvalidExpressionException(String.Format("{0} is not a valid stringValue", stringValue));
             }
             return new IntegerOperand(value);
+        }
+
+        public static IntegerOperand operator +(IntegerOperand left, IntegerOperand right)
+        {
+            return new IntegerOperand(left._value + right._value);
+        }
+
+        public static IntegerOperand operator -(IntegerOperand left, IntegerOperand right)
+        {
+            return new IntegerOperand(left._value - right._value);
         }
     }
 }

@@ -14,7 +14,7 @@ namespace ExtremeOopDojo.Command
 
         public override string Execute()
         {
-            return _operand.Execute(Variables) + Environment.NewLine;
+            return _operand.Execute(VariableList) + Environment.NewLine;
         }
     }
 }

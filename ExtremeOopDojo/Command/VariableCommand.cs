@@ -31,7 +31,7 @@ namespace ExtremeOopDojo.Command
 
         public override string Execute()
         {
-            Variables.Add(_name, _value);
+            VariableList.Add(_name, _value);
             return ""; // Requirements states that assignments are not echoed
         }
     }

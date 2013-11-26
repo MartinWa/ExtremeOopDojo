@@ -11,9 +11,9 @@ namespace ExtremeOopDojo.Operands
         {
             _variableName = variableName;
         }
-        public override string Execute(IVariableList variables)
+        public override string Execute(IVariableList variableList)
         {
-            return variables.Get(_variableName).ToString(CultureInfo.InvariantCulture);
+            return variableList.Get(_variableName).ToString(CultureInfo.InvariantCulture);
         }
     }
 }
